@@ -6,10 +6,13 @@ import java.util.List;
 public class App {
     public static void main(String[] args) throws Exception {
         
-        API api = API.LINGUAGENS_FLY;
+        API api = API.NASA;
+        String keyNASA = "";
 
-        // String NASAKey = System.getenv("NASA_API_KEY");
-        String url = api.getUrl();// + NASAKey +"&start_date=2023-01-01";
+        if(api == API.NASA)
+            keyNASA = System.getenv("NASA_API_KEY") + "&start_date=2023-01-01";
+
+        String url = api.getUrl() + keyNASA;
         
         ExtratorDeConteudo extrator = api.getExtrator();
         
